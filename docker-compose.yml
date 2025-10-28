@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  trip-planner:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - NODE_ENV=production
+      # Optional: Add your API keys here
+      # - NEXT_PUBLIC_MAPBOX_TOKEN=your_token_here
+      # - OPENTRIPMAP_API_KEY=your_key_here
+    restart: unless-stopped
